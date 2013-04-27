@@ -1,5 +1,5 @@
 DELAY=0
-count=150
+count=300
 
 while true;do
   echo "Right"
