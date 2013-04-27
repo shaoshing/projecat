@@ -9,6 +9,7 @@ SECONDS = 60
 
 current_count = 0
 started_at = Time.now
+beeper = PiPiper::Pin.new(:pin => 4, :direction => :out)
 
 while true
   pins = (current_count/MAX_COUNT%2) == 0 ? RIGHT_PINS : LEFT_PINS
@@ -18,6 +19,7 @@ while true
 
   current_count += 1
   sleep 0.01
+  beeper.on && sleep(0.05) && beeper.off
 
   break if (Time.now - started_at) > SECONDS
 end
