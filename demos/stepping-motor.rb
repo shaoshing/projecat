@@ -13,8 +13,8 @@ beeper = PiPiper::Pin.new(:pin => 4, :direction => :out)
 
 Thread.new do
   loop do
-    sleep 1
-    beeper.on && sleep(0.05) && beeper.off
+    # sleep 1
+    # beeper.on && sleep(0.05) && beeper.off
   end
 end
 
@@ -30,3 +30,5 @@ while true
   break if (Time.now - started_at) > SECONDS
 end
 
+beeper.off
+RIGHT_PINS.each &:off
