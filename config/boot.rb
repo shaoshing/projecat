@@ -7,6 +7,9 @@ require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
 
+$LOAD_PATH << "#{Padrino.root}/cat_feeder"
+require 'cat_feeder'
+
 ##
 # ## Enable devel logging
 #

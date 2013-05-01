@@ -24,7 +24,7 @@ module CatFeeder
             end
             end_eating_at = Time.now
 
-            Eating.create(started_at: start_eating_at, ended_at: end_eating_at)
+            ::Eating.create(started_at: start_eating_at, ended_at: end_eating_at)
           end
         end
       end

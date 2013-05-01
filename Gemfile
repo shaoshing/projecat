@@ -32,5 +32,5 @@ gem 'padrino', '0.11.1'
 #   gem 'padrino-' + g, '0.11.1'
 # end
 
-gem 'cat_feeder', :path => "../cat_feeder"
-gem 'raspi_modules', :path => "../cat_feeder/vendor/raspi_modules"
+# gem 'cat_feeder', :path => "../cat_feeder"
+gem 'raspi_modules', :path => "vendor/raspi_modules"
