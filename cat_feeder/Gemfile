@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'pi_piper'
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'sqlite3'
+gem 'raspi_modules', :path => "vendor/raspi_modules"
