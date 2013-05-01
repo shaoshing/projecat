@@ -1,5 +1,5 @@
 module CatFeeder
-  class EatingMonitor
+  class EatingDetector
     MAX_DETECTION_COUNT = 20
     HIT_DETECTION_COUNT = 10
     INTERVAL_MS = 100

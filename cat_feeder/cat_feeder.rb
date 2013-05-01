@@ -1,11 +1,11 @@
 require 'raspi_modules'
 
 module CatFeeder
-  autoload :EatingMonitor,  "devices/eating_monitor"
+  autoload :EatingDetector,  "devices/eating_detector"
 
   class App
     def self.start
-      EatingMonitor.run
+      EatingDetector.run
     end
   end
 end
