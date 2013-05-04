@@ -27,10 +27,17 @@ module CatFeeder
         return false if time_out
       end
 
+
       @started_at = Time.now
       off_count = 0
+      detection_count = 0
+      strtime = @started_at.strftime("%d_%H:%M:%S")
       loop do
         sleep DURATION
+
+        if (detection_count += 1) % 10 == 0
+          `fswebcam -r 1280x960 -d /dev/video0 /var/www/photos/#{strtime}/#{detection_count/10}.jpg`
+        end
 
         @pin.read
         if @pin.on?
