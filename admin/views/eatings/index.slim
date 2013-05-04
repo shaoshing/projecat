@@ -31,7 +31,7 @@ div class="tabs-content"
       -@eatings.each do |eating|
         tr class='list-row'
           td class='list-column list-selectable' = check_box_tag 'eating_ids[]', :value => eating.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = eating.minutes
+          td class='list-column' = "#{eating.minutes} minutes"
           td class='list-column' = time_ago_in_words eating.created_at
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'

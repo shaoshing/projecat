@@ -31,13 +31,13 @@ module CatFeeder
       off_count = 0
       loop do
         sleep DURATION
+
         @pin.read
         if @pin.on?
           off_count = 0
           next
         else
-          off_count += 1
-          break if off_count >= TIME_OUT
+          break if (off_count += 1) >= TIME_OUT
         end
       end
       @ended_at = Time.now - TIME_OUT*DURATION

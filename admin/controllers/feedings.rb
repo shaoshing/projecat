@@ -1,7 +1,7 @@
 Projecat::Admin.controllers :feedings do
   get :index do
     @title = "Feedings"
-    @feedings = Feeding.all
+    @feedings = Feeding.order("created_at DESC")
     render 'feedings/index'
   end
 
@@ -78,9 +78,9 @@ Projecat::Admin.controllers :feedings do
     end
     ids = params[:feeding_ids].split(',').map(&:strip).map(&:to_i)
     feedings = Feeding.find(ids)
-    
+
     if Feeding.destroy feedings
-    
+
       flash[:success] = pat(:destroy_many_success, :model => 'Feedings', :ids => "#{ids.to_sentence}")
     end
     redirect url(:feedings, :index)

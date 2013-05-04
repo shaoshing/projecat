@@ -35,7 +35,6 @@ module CatFeeder
             started_at, ended_at = EatingDetectDevice.last_eating_times
             ::Eating.create!(started_at: started_at, ended_at: ended_at)
           end
-
           sleep 10
         end
       end
