@@ -1,6 +1,5 @@
 ul class="nav nav-tabs"
   li class="active" = link_to tag_icon(:list, pat(:list)), url(:eatings, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:eatings, :new)
 
 div class="tabs-content"
   table class="table table-striped table-hover table-condensed" id="list"
@@ -25,22 +24,16 @@ div class="tabs-content"
                       = hidden_field_tag :eating_ids, :'data-delete-many-ids' => true
                       = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
                       div class='btn btn-small cancel' = pat(:cancel)
-        th class='header' = :id
-        th class='header' = :started_at
-        th class='header' = :ended_at
-        th class='header' = :created_at
-        th class='header' = :updated_at
+        th class='header' = :duration
+        th class='header' = :time
         th class='header list-row-action-header'
 
     tbody
       -@eatings.each do |eating|
         tr class='list-row'
           td class='list-column list-selectable' = check_box_tag 'eating_ids[]', :value => eating.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = eating.id
-          td class='list-column' = eating.started_at
-          td class='list-column' = eating.ended_at
+          td class='list-column' = eating.minutes
           td class='list-column' = time_ago_in_words eating.created_at
-          td class='list-column' = time_ago_in_words eating.updated_at
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:eatings, :edit, :id => eating.id), :rel => :tooltip, :title => "#{pat(:edit)} eating", :class => 'list-row-action-wrapper-link'
