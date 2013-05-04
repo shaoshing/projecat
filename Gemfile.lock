@@ -15,9 +15,16 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    capistrano (2.15.4)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     daemons (1.1.9)
     eventmachine (1.0.3)
     ffi (1.8.1)
+    highline (1.6.18)
     http_router (0.11.0)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -28,6 +35,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.2)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.7)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     padrino (0.11.1)
       padrino-admin (= 0.11.1)
       padrino-cache (= 0.11.1)
@@ -92,6 +106,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.1)
   bcrypt-ruby
+  capistrano
   padrino (= 0.11.1)
   pi_piper
   rake

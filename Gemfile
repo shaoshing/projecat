@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'capistrano'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'slim'
