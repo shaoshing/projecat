@@ -1,6 +1,4 @@
 ul class="nav nav-tabs"
-  li class="active" = link_to tag_icon(:list, pat(:list)), url(:feedings, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:feedings, :new)
 
 div class="tabs-content"
   table class="table table-striped table-hover table-condensed" id="list"
@@ -25,18 +23,14 @@ div class="tabs-content"
                       = hidden_field_tag :feeding_ids, :'data-delete-many-ids' => true
                       = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
                       div class='btn btn-small cancel' = pat(:cancel)
-        th class='header' = :id
-        th class='header' = :created_at
-        th class='header' = :updated_at
+        th class='header' = "Fed At"
         th class='header list-row-action-header'
 
     tbody
       -@feedings.each do |feeding|
         tr class='list-row'
           td class='list-column list-selectable' = check_box_tag 'feeding_ids[]', :value => feeding.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = feeding.id
           td class='list-column' = time_ago_in_words feeding.created_at
-          td class='list-column' = time_ago_in_words feeding.updated_at
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:feedings, :edit, :id => feeding.id), :rel => :tooltip, :title => "#{pat(:edit)} feeding", :class => 'list-row-action-wrapper-link'

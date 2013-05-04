@@ -34,13 +34,13 @@ module Projecat
     end
 
     access_control.roles_for :admin do |role|
-    role.project_module :configurations, '/configurations'
-    role.project_module :feedings, '/feedings'
     role.project_module :eatings, '/eatings'
+    role.project_module :feedings, '/feedings'
     role.project_module :accounts, '/accounts'
+    role.project_module :configurations, '/configurations'
     end
 
-    # Custom error management 
+    # Custom error management
     error(403) { @title = "Error 403"; render('errors/403', :layout => :error) }
     error(404) { @title = "Error 404"; render('errors/404', :layout => :error) }
     error(500) { @title = "Error 500"; render('errors/500', :layout => :error) }
