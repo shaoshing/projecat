@@ -10,7 +10,7 @@ module CatFeeder
     def self.eating?
       @started_at = nil
       @ended_at = nil
-      @pin ||= PiPiper::Pin.new(:pin => RASPI_GPIO_PINS[PIN_NUM], :direction => :in)
+      @pin ||= PiPiper::Pin.new(:pin => RASPI_GPIO_PINS[PIN_NUM], :direction => :in, :invert => true)
 
       @pin.read
       if @pin.off?
