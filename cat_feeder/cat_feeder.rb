@@ -13,18 +13,21 @@ module CatFeeder
       # Feeder Device
       Thread.new do
         loop do
+          sleep_seconds = 30
           now = Time.now
           now_int = now.strftime("%H%M").to_i
-          feeding_time_ints.each do |time_int|
+          @feeding_time_ints.each do |time_int|
             if now_int == time_int
               Beeper.beep(5)
               FeedingDevice.drop
               Feeding.create!
+              # Sleep in a longer time to avoid trigger the same feeding schedule twice
+              sleep_seconds = 70
               break
             end
           end
 
-          sleep 40
+          sleep sleep_seconds
         end
       end
 
