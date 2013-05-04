@@ -23,7 +23,7 @@ gem 'sqlite3'
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
-gem 'pi_piper'
+gem 'pi_piper', :require => false
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

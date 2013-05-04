@@ -30,7 +30,7 @@ module CatFeeder
       Thread.new do
         if EatingDetectDevice.eating?
           started_at, ended_at = EatingDetectDevice.last_eating_times
-          Eating.create!(started_at: started_at, ended_at: ended_at)
+          ::Eating.create!(started_at: started_at, ended_at: ended_at)
         end
 
         sleep 30
@@ -39,7 +39,7 @@ module CatFeeder
 
     # TODO: mutex
     def self.reset
-      @feeding_time_ints = Configuration.feeding_times.map &:to_i
+      @feeding_time_ints = ::Configuration.feeding_times.map &:to_i
     end
   end # App
 end

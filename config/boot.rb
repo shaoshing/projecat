@@ -12,10 +12,6 @@ require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
 
-$LOAD_PATH << "#{Padrino.root}/cat_feeder"
-require 'cat_feeder'
-CatFeeder::App.run
-
 ##
 # ## Enable devel logging
 #
@@ -49,6 +45,11 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  if Padrino.env == :production
+    $LOAD_PATH << "#{Padrino.root}/cat_feeder"
+    require 'cat_feeder'
+    CatFeeder::App.run
+  end
 end
 
 Padrino.load!

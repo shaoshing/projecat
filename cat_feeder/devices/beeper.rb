@@ -1,3 +1,5 @@
+require 'pi_piper'
+
 module CatFeeder
   class Beeper
     PIN_NUM = 5

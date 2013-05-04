@@ -1,3 +1,5 @@
+require 'pi_piper'
+
 module CatFeeder
   class EatingDetectDevice
     PIN_NUM = 6
