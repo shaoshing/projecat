@@ -23,6 +23,7 @@ gem 'sqlite3'
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
+gem 'pi_piper'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
@@ -33,4 +34,4 @@ gem 'padrino', '0.11.1'
 # end
 
 # gem 'cat_feeder', :path => "../cat_feeder"
-gem 'raspi_modules', :path => "vendor/raspi_modules"
+# gem 'raspi_modules', :path => "vendor/raspi_modules"

@@ -2,6 +2,11 @@
 PADRINO_ENV  = ENV['PADRINO_ENV'] ||= ENV['RACK_ENV'] ||= 'development'  unless defined?(PADRINO_ENV)
 PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 
+if Time.now == 1970
+  puts "The current date is #{Time.now.strftime("%Y-%m-%d")}, which is incorrect. I will sync the time with remote server before starting."
+  `ntpdate 0.pool.ntp.org`
+end
+
 # Load our dependencies
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
@@ -9,6 +14,7 @@ Bundler.require(:default, PADRINO_ENV)
 
 $LOAD_PATH << "#{Padrino.root}/cat_feeder"
 require 'cat_feeder'
+CatFeeder::App.run
 
 ##
 # ## Enable devel logging

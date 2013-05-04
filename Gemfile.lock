@@ -1,8 +1,3 @@
-PATH
-  remote: vendor/raspi_modules
-  specs:
-    raspi_modules (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,6 +15,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    ffi (1.8.1)
     http_router (0.11.0)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -59,6 +55,8 @@ GEM
     padrino-mailer (0.11.1)
       mail (~> 2.5.3)
       padrino-core (= 0.11.1)
+    pi_piper (1.3.1)
+      ffi
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -89,7 +87,7 @@ DEPENDENCIES
   activerecord (>= 3.1)
   bcrypt-ruby
   padrino (= 0.11.1)
+  pi_piper
   rake
-  raspi_modules!
   slim
   sqlite3
