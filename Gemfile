@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
 
 # Optional JSON codec (faster performance)
@@ -24,6 +19,7 @@ gem 'sqlite3'
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
 gem 'pi_piper', :require => false
+gem 'thin'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
