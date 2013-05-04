@@ -48,7 +48,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
-  if Padrino.env == :production
+  if Padrino.env == :production && ! defined?(IRB)
     CatFeeder::App.run
   end
 end
