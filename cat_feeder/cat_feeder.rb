@@ -24,7 +24,7 @@ module CatFeeder
             end
           end
 
-          sleep 60
+          sleep 40
         end
       end
 
