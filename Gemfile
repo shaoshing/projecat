@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
+source :rubygems
 
 gem 'rake'
-gem 'capistrano'
+
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'slim'
@@ -11,6 +11,10 @@ gem 'sqlite3'
 gem 'padrino', '0.11.1'
 gem 'pi_piper', :require => false
 gem 'thin'
+
+group :deployment do
+  gem 'capistrano'
+end
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

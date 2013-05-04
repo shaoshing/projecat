@@ -7,7 +7,7 @@ namespace :raspi do
     run [
       "cd projecat",
       "git pull",
-      "bundle install",
+      "bundle install --without deployment",
       "padrino ar:migrate -e production",
       "mkdir tmp",
       "kill `cat tmp/thin.pid`",
