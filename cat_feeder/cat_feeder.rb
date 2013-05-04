@@ -12,28 +12,32 @@ module CatFeeder
 
       # Feeder Device
       Thread.new do
-        now = Time.now
-        now_int = now.strftime("%H%M").to_i
-        feeding_time_ints.each do |time_int|
-          if now_int == time_int
-            Beeper.beep(5)
-            FeedingDevice.drop
-            Feeding.create!
-            break
+        loop do
+          now = Time.now
+          now_int = now.strftime("%H%M").to_i
+          feeding_time_ints.each do |time_int|
+            if now_int == time_int
+              Beeper.beep(5)
+              FeedingDevice.drop
+              Feeding.create!
+              break
+            end
           end
-        end
 
-        sleep 60
+          sleep 60
+        end
       end
 
       # Eating Detect Device
       Thread.new do
-        if EatingDetectDevice.eating?
-          started_at, ended_at = EatingDetectDevice.last_eating_times
-          ::Eating.create!(started_at: started_at, ended_at: ended_at)
-        end
+        loop do
+          if EatingDetectDevice.eating?
+            started_at, ended_at = EatingDetectDevice.last_eating_times
+            ::Eating.create!(started_at: started_at, ended_at: ended_at)
+          end
 
-        sleep 30
+          sleep 10
+        end
       end
     end
 
