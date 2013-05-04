@@ -32,6 +32,8 @@ module CatFeeder
       off_count = 0
       detection_count = 0
       strtime = @started_at.strftime("%d_%H:%M:%S")
+      `mkdir /var/www/photos/#{strtime}`
+
       loop do
         sleep DURATION
 
