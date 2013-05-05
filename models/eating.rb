@@ -1,5 +1,9 @@
 class Eating < ActiveRecord::Base
-  def minutes
-    ((ended_at - started_at) / 60).to_i
+  def duration_in_words
+    amount_seconds = (ended_at - started_at).to_i
+    seconds = amount_seconds % 60
+    minutes = amount_seconds / 60
+
+    "%02i:%02i" % [minutes, seconds]
   end
 end

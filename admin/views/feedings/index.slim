@@ -30,7 +30,7 @@ div class="tabs-content"
       -@feedings.each do |feeding|
         tr class='list-row'
           td class='list-column list-selectable' = check_box_tag 'feeding_ids[]', :value => feeding.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = time_ago_in_words feeding.created_at
+          td class='list-column' = feeding.created_at.strftime("%Y-%m-%d %H:%M")
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:feedings, :edit, :id => feeding.id), :rel => :tooltip, :title => "#{pat(:edit)} feeding", :class => 'list-row-action-wrapper-link'
