@@ -1,0 +1,19 @@
+---
+# user: www-data
+# group: www-data
+address: 127.0.0.1
+port: 3000
+pid: tmp/thin.pid
+log: log/thin.log
+socket: tmp/thin.sock
+max_conns: 4
+require: []
+
+environment: production
+max_persistent_conns: 4
+servers: 1
+daemonize: true
+
+# chdir: /Users/shaoshing/Projects/projecat
+chdir: /root/projecat
+tag: Projecat
