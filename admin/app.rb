@@ -36,6 +36,7 @@ module Projecat
     access_control.roles_for :admin do |role|
     role.project_module :eatings, '/eatings'
     role.project_module :feedings, '/feedings'
+    role.project_module :tweets, '/tweets'
     role.project_module :accounts, '/accounts'
     role.project_module :configurations, '/configurations'
     end

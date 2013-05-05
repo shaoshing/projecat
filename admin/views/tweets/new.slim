@@ -1,0 +1,7 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:tweets, :index)
+  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:tweets, :new)
+
+div class="tabs-content"
+  - form_for :tweet, url(:tweets, :create), :class => 'form-horizontal' do |f|
+    = partial 'tweets/form', :locals => { :f => f }
