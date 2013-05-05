@@ -12,7 +12,7 @@ namespace :raspi do
       "git pull",
       "bundle install --without deployment",
       "padrino rake ar:migrate -e production",
-      "kill `cat tmp/thin.pid`",
+      "kill `cat tmp/thin.pid` && rm tmp/thin.pid",
       "thin start -d -e production -p 3000 -a 0.0.0.0 --pid tmp/thin.pid",
       ].join(" && ")
   end
