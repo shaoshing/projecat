@@ -19,7 +19,7 @@ module CatFeeder
           @feeding_time_ints.each do |time_int|
             if now_int == time_int
               Beeper.beep(5)
-              FeedingDevice.drop
+              FeedingDevice.drop(@feeding_quantity)
               Feeding.create!
               # Sleep in a longer time to avoid trigger the same feeding schedule twice
               sleep_seconds = 70
@@ -45,7 +45,8 @@ module CatFeeder
 
     # TODO: mutex
     def self.reset
-      @feeding_time_ints = ::Configuration.feeding_times.map &:to_i
+      @feeding_time_ints = ::Configuration.feeding_schedule.split(",").map(&:to_i)
+      @feeding_quantity = ::Configuration.feeding_quantity.to_f/1000
     end
   end # App
 end
