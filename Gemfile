@@ -7,6 +7,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
+gem 'weibo_2'
 
 gem 'padrino', '0.11.1'
 gem 'pi_piper', :require => false
