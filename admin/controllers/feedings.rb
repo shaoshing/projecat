@@ -80,9 +80,14 @@ Projecat::Admin.controllers :feedings do
     feedings = Feeding.find(ids)
 
     if Feeding.destroy feedings
-
       flash[:success] = pat(:destroy_many_success, :model => 'Feedings', :ids => "#{ids.to_sentence}")
     end
+    redirect url(:feedings, :index)
+  end
+
+  get :feed do
+    CatFeeder::App.feed
+    flash[:success] = "Num num num num, delicious!"
     redirect url(:feedings, :index)
   end
 end

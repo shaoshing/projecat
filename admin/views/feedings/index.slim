@@ -42,3 +42,5 @@ div class="tabs-content"
                   - form_tag url(:feedings, :destroy, :id => feeding.id), :method => :delete do
                     = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
                     div class='btn btn-small cancel' = pat(:cancel)
+
+= link_to pat(:feed), url(:feedings, :feed), :class => 'btn'
