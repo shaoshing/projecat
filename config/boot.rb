@@ -15,6 +15,10 @@ Bundler.require(:default, PADRINO_ENV)
 $LOAD_PATH << "#{Padrino.root}/cat_feeder"
 require 'cat_feeder'
 
+WeiboOAuth2::Config.api_key = "1622340630"
+WeiboOAuth2::Config.api_secret = "7637435cde73d981f45180107454c020"
+WeiboOAuth2::Config.redirect_uri = "http://192.168.1.130:3000/admin/weibo/authorized"
+
 ##
 # ## Enable devel logging
 #

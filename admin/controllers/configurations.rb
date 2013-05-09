@@ -1,5 +1,9 @@
 Projecat::Admin.controllers :configurations do
   get :index do
+    @feeding_configs = [Configuration::FEEDING_SCHEDULES, Configuration::FEEDING_QUANTITY]
+    @weibo_configs = [Configuration::WEIBO_UID, Configuration::WEIBO_TOKEN,
+      Configuration::WEIBO_EXPIRED_AT, Configuration::WEIBO_NAME]
+
     @title = "Configurations"
     render 'configurations/index'
   end
