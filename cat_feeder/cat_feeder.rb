@@ -35,7 +35,8 @@ module CatFeeder
           if EatingDetectDevice.eating?
             started_at, ended_at = EatingDetectDevice.last_eating_times
             ::Eating.create!(started_at: started_at, ended_at: ended_at)
-            Weibo.post_eating
+            pic_path = Camera.photo_paths[-2]
+            ::Weibo.post_eating(pic_path)
           end
           sleep 10
         end

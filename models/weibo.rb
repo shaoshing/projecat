@@ -20,8 +20,8 @@ class Weibo
     "花酱她来吃饭了",
     "花酱她来吃饭了，感觉又变胖了",
   ]
-  def self.post_eating
-    pic = File.open(CatFeeder::Camera.last_picture_path)
+  def self.post_eating(pic_path)
+    pic = File.open(pic_path)
     status.upload(EATING_POSTS[rand(EATING_POSTS.length)], pic, :filename => Time.now.to_s)
   end
 end
