@@ -5,8 +5,15 @@ module CatFeeder
     PIN_NUMS = [0, 1, 2, 3]
     DEFAULT_COUNT = 20
 
-    def self.take
+    def self.take(path=nil)
+      path ||= "/tmp/#{Time.now.to_i}.jpg"
+      @last_path = path
+      `fswebcam -r 1280x960 -d /dev/video0 #{path}`
+      path
+    end
 
+    def self.last_picture_path
+      @last_path
     end
 
     def self.rotate(options = {direction: :left, count: DEFAULT_COUNT})

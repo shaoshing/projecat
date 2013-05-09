@@ -12,7 +12,7 @@ class Weibo
   end
 
   def self.post_feeding
-    post("花酱，主人喊你吃饭了！")
+    status.update("花酱，主人喊你吃饭了！")
   end
 
   EATING_POSTS = [
@@ -21,6 +21,8 @@ class Weibo
     "花酱她来吃饭了，感觉又变胖了",
   ]
   def self.post_eating
-    post(EATING_POSTS[rand(EATING_POSTS.length)])
+    post()
+
+    status.upload(EATING_POSTS[rand(EATING_POSTS.length)], File.open(Camera.last_picture_path), :filename => Time.now.to_s)
   end
 end
