@@ -22,6 +22,7 @@ class Weibo
   ]
   def self.post_eating(pic_path)
     pic = File.open(Dir["/var/www/photos/**/*.jpg"].sort[-2])
-    status.upload(EATING_POSTS[rand(EATING_POSTS.length)], pic, :filename => Time.now.to_s)
+    duration = Eating.duration_in_words
+    status.upload(EATING_POSTS[rand(EATING_POSTS.length)] + "  (大概吃了这么久：#{duration})", pic, :filename => Time.now.to_s)
   end
 end
