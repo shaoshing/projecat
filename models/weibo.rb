@@ -2,7 +2,7 @@
 
 class Weibo
   def self.post content
-    statuses.update(content)
+    status.update(content)
   end
 
   def self.status
