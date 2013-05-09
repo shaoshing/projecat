@@ -21,7 +21,7 @@ class Weibo
     "花酱她来吃饭了，感觉又变胖了",
   ]
   def self.post_eating(pic_path)
-    pic = File.open(pic_path)
+    pic = File.open(Dir["/var/www/photos/**/*.jpg"].sort[-2])
     status.upload(EATING_POSTS[rand(EATING_POSTS.length)], pic, :filename => Time.now.to_s)
   end
 end
