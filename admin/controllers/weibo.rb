@@ -5,9 +5,14 @@ Projecat::Admin.controllers :weibo do
   end
 
   get :authorized do
-    client = WeiboOAuth2::Client.new
-    access_token = client.auth_code.get_token(params[:code].to_s)
-    user = client.users.show_by_uid(access_token.params["uid"].to_i)
+    begin
+      client = WeiboOAuth2::Client.new
+      access_token = client.auth_code.get_token(params[:code].to_s)
+      user = client.users.show_by_uid(access_token.params["uid"].to_i)
+    rescue => e
+      flash[:error] = e.message
+      redirect url(:configurations, :index)
+    end
 
     Configuration.weibo_name = user.screen_name
     Configuration.weibo_uid = access_token.params["uid"]
