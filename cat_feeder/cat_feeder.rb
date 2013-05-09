@@ -35,6 +35,7 @@ module CatFeeder
           if EatingDetectDevice.eating?
             started_at, ended_at = EatingDetectDevice.last_eating_times
             ::Eating.create!(started_at: started_at, ended_at: ended_at)
+            Weibo.post_eating
           end
           sleep 10
         end
@@ -51,7 +52,7 @@ module CatFeeder
       Beeper.beep(5)
       FeedingDevice.drop(@feeding_quantity)
       Feeding.create!
-      Weibo.post("花酱，主人喊你吃饭了！")
+      Weibo.post_feeding
     end
   end # App
 end
