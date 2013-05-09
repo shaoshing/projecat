@@ -51,6 +51,7 @@ module CatFeeder
       Beeper.beep(5)
       FeedingDevice.drop(@feeding_quantity)
       Feeding.create!
+      Weibo.post("花酱，主人喊你吃饭了！")
     end
   end # App
 end
